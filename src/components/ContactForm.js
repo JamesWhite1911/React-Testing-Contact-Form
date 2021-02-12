@@ -15,12 +15,7 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="firstName">First Name*</label>
-          <input
-            id="firstName"
-            name="firstName"
-            placeholder="Edd"
-            ref={register({ required: true, maxLength: 3 })}
-          />
+          <input id="firstName" name="firstName" placeholder="Edd" ref={register({ required: true })} />
           {errors.firstName && (
             <p>Looks like there was an error: {errors.firstName.type}</p>
           )}
@@ -44,7 +39,7 @@ const ContactForm = () => {
             Email*
           </label>
           <input name="email"
-            id="lastName"
+            id="email"
             placeholder="bluebill1049@hotmail.com"
             ref={register({ required: true })}
           />
@@ -61,7 +56,7 @@ const ContactForm = () => {
           />
         </div>
         {data && (
-          <pre style={{ textAlign: "left", color: "white" }}>
+          <pre data-testid="item" style={{ textAlign: "left", color: "white" }}>
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
